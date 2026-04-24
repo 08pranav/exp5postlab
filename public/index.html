@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Form</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .container { max-width: 500px; margin: 0 auto; }
+    label { display: block; margin-top: 10px; }
+    input, select, button { width: 100%; padding: 8px; margin-top: 5px; }
+    button { margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <h2>Student Information Form</h2>
+
+    <p>
+      <strong>Fr. Conceicao Rodrigues College of Engineering</strong><br />
+      Father Agnel Ashram, Bandstand, Bandra-west, Mumbai-50<br />
+      Department of Computer Engineering
+    </p>
+
+    <form action="/submit-form" method="POST">
+      <label for="studentName">Student Name</label>
+      <input id="studentName" name="studentName" type="text" required />
+
+      <label for="branch">Branch</label>
+      <input id="branch" name="branch" type="text" required />
+
+      <label for="year">Year</label>
+      <select id="year" name="year" required>
+        <option value="First Year">First Year</option>
+        <option value="Second Year">Second Year</option>
+        <option value="Third Year">Third Year</option>
+        <option value="Fourth Year">Fourth Year</option>
+      </select>
+
+      <button type="submit">Submit</button>
+    </form>
+  </main>
+</body>
+</html>
