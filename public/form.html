@@ -3,31 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Student Form</title>
+  <title>Post-Lab Experiment 5</title>
   <style>
     body { font-family: Arial, sans-serif; padding: 20px; }
-    .container { max-width: 500px; margin: 0 auto; }
+    .box { max-width: 500px; margin: 0 auto; }
     label { display: block; margin-top: 10px; }
     input, select, button { width: 100%; padding: 8px; margin-top: 5px; }
     button { margin-top: 12px; }
   </style>
 </head>
 <body>
-  <main class="container">
+  <div class="box">
     <h2>Student Information Form</h2>
-
-    <p>
-      <strong>Fr. Conceicao Rodrigues College of Engineering</strong><br />
-      Father Agnel Ashram, Bandstand, Bandra-west, Mumbai-50<br />
-      Department of Computer Engineering
-    </p>
-
-    <form action="/submit-form" method="POST">
+    <form action="/submit" method="POST">
       <label for="studentName">Student Name</label>
       <input id="studentName" name="studentName" type="text" required />
 
       <label for="branch">Branch</label>
-      <input id="branch" name="branch" type="text" required />
+      <select id="branch" name="branch" required>
+        <option value="CE">CE</option>
+        <option value="CSE">CSE</option>
+        <option value="MECH">MECH</option>
+        <option value="ECS">ECS</option>
+      </select>
 
       <label for="year">Year</label>
       <select id="year" name="year" required>
@@ -39,6 +37,6 @@
 
       <button type="submit">Submit</button>
     </form>
-  </main>
+  </div>
 </body>
 </html>

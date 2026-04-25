@@ -1,49 +1,42 @@
 const express = require("express");
-const morgan = require("morgan");
 const path = require("path");
 
 const app = express();
 const PORT = 3000;
 
-app.use(morgan("dev"));
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+  res.sendFile(path.join(__dirname, "public", "form.html"));
 });
 
-app.post("/submit-form", (req, res) => {
+app.post("/submit", (req, res) => {
   const { studentName, branch, year } = req.body;
-  res.send(
-    `Student Name: ${studentName}<br>Branch: ${branch}<br>Year: ${year}`
-  );
+  res.render("postlab1", {
+    heading: "Submitted Information",
+    studentName,
+    branch,
+    year,
+  });
 });
 
-app.get("/about", (req, res) => {
-  res.send("Name: John Doe\nRoll No: 23\nCourse: Computer Engineering");
-});
-
-app.get("/contact", (req, res) => {
-  res.send("Email: john.doe@example.com");
-});
-
-app.post("/register", (req, res) => {
-  res.status(201).send("Created");
-});
-
-app.put("/update", (req, res) => {
-  res.status(200).send("Updated");
-});
-
-app.get("/profile", (req, res) => {
-  res.render("profile", {
-    name: "Joshua",
+app.get("/postlab1", (req, res) => {
+  res.render("postlab1", {
+    heading: "Student Profile",
+    studentName: "Joshua",
     branch: "Computer Engineering",
     year: "SE",
+  });
+});
+
+app.get("/postlab2", (req, res) => {
+  res.render("Post-Lab2", {
+    title: "Post-Lab 2",
+    message: "Dynamic Page Rendering using EJS is working.",
   });
 });
 
